@@ -48,16 +48,17 @@ int main(void)
     while(1)
     {
     	// Various flavors of I/O manipulation
-    	/*
-    	GPIO_01_DIGITAL_WRITE(0);
-    	GPIO_01_DIGITAL_WRITE(1);
-		GPIO_01_DIGITAL_SET;
-		GPIO_01_DIGITAL_CLEAR;
-		gpio_digital_read(1);
-		gpio_digital_read(GPIO_01);
-		gpio_digital_write(1, 1);
-		gpio_digital_read(GPIO_01, 1);
-		*/
+		/*
+		 * Write :
+		 * GPIO_01_DIGITAL_WRITE(0);
+		 * GPIO_01_DIGITAL_WRITE(1);
+		 * GPIO_01_DIGITAL_SET;
+		 * GPIO_01_DIGITAL_CLEAR;
+		 * int v1 = gpio_digital_read(1);
+		 * int v2 = gpio_digital_read(GPIO_01);
+		 * gpio_digital_write(1, 1);
+		 * gpio_digital_write(GPIO_01, 1);
+		 */
 
     	for (int i = 0; i < 3; i++) {
     		static int toggle = 0;
