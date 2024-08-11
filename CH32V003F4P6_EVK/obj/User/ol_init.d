@@ -1,5 +1,6 @@
 User/ol_init.o: ../User/ol_init.c \
  /home/jeanfrancois/mrs_community-workspace/git/orion_nunki_evk/CH32V003F4P6_EVK/User/ol_init.h \
+ /home/jeanfrancois/mrs_community-workspace/git/orion_nunki_evk/CH32V003F4P6_EVK/User/ol_lib.h \
  /home/jeanfrancois/mrs_community-workspace/git/orion_nunki_evk/CH32V003F4P6_EVK/Debug/debug.h \
  /home/jeanfrancois/mrs_community-workspace/git/orion_nunki_evk/CH32V003F4P6_EVK/Peripheral/inc/ch32v00x.h \
  /home/jeanfrancois/mrs_community-workspace/git/orion_nunki_evk/CH32V003F4P6_EVK/Core/core_riscv.h \
@@ -25,6 +26,8 @@ User/ol_init.o: ../User/ol_init.c \
  /home/jeanfrancois/mrs_community-workspace/git/orion_nunki_evk/CH32V003F4P6_EVK/Peripheral/inc/ch32v00x.h
 
 /home/jeanfrancois/mrs_community-workspace/git/orion_nunki_evk/CH32V003F4P6_EVK/User/ol_init.h:
+
+/home/jeanfrancois/mrs_community-workspace/git/orion_nunki_evk/CH32V003F4P6_EVK/User/ol_lib.h:
 
 /home/jeanfrancois/mrs_community-workspace/git/orion_nunki_evk/CH32V003F4P6_EVK/Debug/debug.h:
 

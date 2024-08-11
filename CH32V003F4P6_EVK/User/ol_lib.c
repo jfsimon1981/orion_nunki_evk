@@ -31,8 +31,17 @@ void gpio_digital_write(unsigned int pin, unsigned int vin) {
 #endif
 }
 
-void gpio_digital_read(int pin, int value) {
-
+uint8_t gpio_digital_read(int pin) {
+#ifdef OL_SAFE
+	if ((!pin) || (pin > 16)) {
+		// OL_ERROR(PIN_MAP);
+		return 0;
+	} else {
+		return GPIO_ReadInputDataBit(ol_port_map[pin], ol_pin_map[pin]);
+	}
+#else
+	return GPIO_ReadInputDataBit(ol_port_map[pin], ol_pin_map[pin]);
+#endif
 }
 
 

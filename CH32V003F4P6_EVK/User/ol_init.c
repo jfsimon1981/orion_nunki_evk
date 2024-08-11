@@ -6,6 +6,7 @@
  */
 
 #include <ol_init.h>
+#include <ol_lib.h>
 #include "debug.h"
 
 void user_init() {
@@ -19,36 +20,18 @@ void user_init() {
 
 	// Init I/O
 
-	// Init GPIO_06
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD, ENABLE);
 	{
 		GPIO_InitTypeDef GPIO_InitStructure = {0};
 		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
-		GPIO_Init(GPIOD, &GPIO_InitStructure);
+		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+		// GPIO outputs
+		GPIO_InitStructure.GPIO_Pin = OL_GPIO_01_PIN;
+		GPIO_Init(OL_GPIO_01_PORT, &GPIO_InitStructure);
+		GPIO_InitStructure.GPIO_Pin = OL_GPIO_02_PIN;
+		GPIO_Init(OL_GPIO_02_PORT, &GPIO_InitStructure);
 	}
 
-	// Init GPIO_10
-	/* */
-	{
-		GPIO_InitTypeDef GPIO_InitStructure = {0};
-		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
-		GPIO_Init(GPIOD, &GPIO_InitStructure);
-	}
-	/* */
-
-	// Init GPIO_09
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
-	{
-		GPIO_InitTypeDef GPIO_InitStructure = {0};
-		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz; // GPIO_Speed_2MHz GPIO_Speed_10MHz GPIO_Speed_50MHz
-		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
-		GPIO_Init(GPIOC, &GPIO_InitStructure);
-	}
 }
 
 void system_init() {
