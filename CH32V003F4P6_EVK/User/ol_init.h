@@ -5,11 +5,11 @@
  *      Author: jeanfrancois
  */
 
-#ifndef USER_OL_INIT_H_
-#define USER_OL_INIT_H_
+#ifndef USER_CEL_INIT_H_
+#define USER_CEL_INIT_H_
 
 void USARTx_CFG(void);
 void system_init();
 void user_init();
 
-#endif /* USER_OL_INIT_H_ */
+#endif /* USER_CEL_INIT_H_ */

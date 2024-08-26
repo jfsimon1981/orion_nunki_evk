@@ -1,6 +1,6 @@
 /********************************** (C) COPYRIGHT *******************************
  * File Name          : main.c
- * Author             : Orion-Electronics
+ * Author             : Chrysalide-Engineering
  * Version            : V1.0
  * Date               : 10/8/24
  * Description        : Main program body.

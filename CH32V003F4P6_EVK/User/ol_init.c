@@ -13,7 +13,7 @@ void user_init() {
 	USARTx_CFG();
 	// Display System properties on boot
 	{
-		printf("\n\r Orion Project \r\n");
+		printf("\n\r Nunki Board Running \r\n");
 		printf("SystemClk:%d\r\n",SystemCoreClock);
 		printf("ChipID:%08x\r\n", DBGMCU_GetCHIPID());
 	}

@@ -7,8 +7,8 @@
 
 #include <ol_lib.h>
 
-#ifndef USER_ORION_LIB_C_
-#define USER_ORION_LIB_C_
+#ifndef USER_CE_LIB_C_
+#define USER_CE_LIB_C_
 
 GPIO_TypeDef * ol_port_map[] = {0, GPIOD, GPIOD, GPIOD, GPIOD, GPIOC, GPIOD, GPIOD, \
 		GPIOD, GPIOC, GPIOD, GPIOC, GPIOC, GPIOC, GPIOC, GPIOC, GPIOC};
@@ -45,4 +45,4 @@ uint8_t gpio_digital_read(int pin) {
 }
 
 
-#endif /* USER_ORION_LIB_C_ */
+#endif /* USER_CE_LIB_C_ */

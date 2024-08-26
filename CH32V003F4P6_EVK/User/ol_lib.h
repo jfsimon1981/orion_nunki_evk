@@ -5,15 +5,15 @@
  *      Author: jeanfrancois
  */
 
-#ifndef USER_OL_LIB_H_
-#define USER_OL_LIB_H_
+#ifndef USER_CEL_LIB_H_
+#define USER_CEL_LIB_H_
 
 #include "debug.h"
 
 // Supported boards
 
 // User defined board
-// EVK_CH32V003_GENERIC, ORION_NUNKI_V3F
+// EVK_CH32V003_GENERIC, CE_NUNKI_V3F
 
 // User Configuration
 
@@ -37,10 +37,10 @@
  *      16 15  <-> PC2 PC1
  */
 
-// #define ORION_NUNKI_V3F
+// #define CE_NUNKI_V3F
 
 /*
- * NUNKI-V3F (manufactured by Orion-Electronics)
+ * NUNKI-V3F (manufactured by Chrysalide Engineering)
  *
  * Header GPIO     MCU Pin
  *
@@ -113,7 +113,7 @@ extern uint16_t ol_pin_map[];
 #define OL_GPIO_16_PIN  GPIO_Pin_2
 #endif
 
-#ifdef ORION_NUNKI_V3F
+#ifdef CE_NUNKI_V3F
 #define OL_GPIO_01_PORT GPIOD
 #define OL_GPIO_01_PIN  GPIO_Pin_5
 #define OL_GPIO_02_PORT GPIOD
@@ -217,8 +217,7 @@ extern uint16_t ol_pin_map[];
 #define GPIO_16_DIGITAL_READ GPIO_ReadInputDataBit(OL_GPIO_16_PORT, OL_GPIO_16_PIN)
 
 // Generic (lookup table function)
-
 void gpio_digital_write(unsigned int pin, unsigned int vin);
 uint8_t gpio_digital_read(int pin);
 
-#endif /* USER_OL_LIB_H_ */
+#endif /* USER_CEL_LIB_H_ */

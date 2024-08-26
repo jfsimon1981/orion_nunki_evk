@@ -1171,7 +1171,7 @@ END GROUP
  *fill*         0x000000000000009e        0x2 
                 0x00000000000000a0                _einit = .
 
-.text           0x00000000000000a0     0x1cd4
+.text           0x00000000000000a0     0x1cdc
                 0x00000000000000a0                . = ALIGN (0x4)
  *(.text)
  .text          0x00000000000000a0       0x14 /home/jeanfrancois/riscv/MounRiver_Studio_Community_Linux_x64_V160/MRS_Community/toolchain/RISC-V Embedded GCC/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32ec/ilp32e/libgcc.a(save-restore.o)
@@ -1405,79 +1405,79 @@ END GROUP
  *(.rodata*)
  *fill*         0x0000000000001ca2        0x2 
  .rodata.user_init.str1.4
-                0x0000000000001ca4       0x32 ./User/ol_init.o
- *fill*         0x0000000000001cd6        0x2 
+                0x0000000000001ca4       0x3a ./User/ol_init.o
+ *fill*         0x0000000000001cde        0x2 
  .rodata.__sf_fake_stderr
-                0x0000000000001cd8       0x20 /home/jeanfrancois/riscv/MounRiver_Studio_Community_Linux_x64_V160/MRS_Community/toolchain/RISC-V Embedded GCC/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32ec/ilp32e/libg_nano.a(lib_a-findfp.o)
-                0x0000000000001cd8                __sf_fake_stderr
+                0x0000000000001ce0       0x20 /home/jeanfrancois/riscv/MounRiver_Studio_Community_Linux_x64_V160/MRS_Community/toolchain/RISC-V Embedded GCC/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32ec/ilp32e/libg_nano.a(lib_a-findfp.o)
+                0x0000000000001ce0                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x0000000000001cf8       0x20 /home/jeanfrancois/riscv/MounRiver_Studio_Community_Linux_x64_V160/MRS_Community/toolchain/RISC-V Embedded GCC/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32ec/ilp32e/libg_nano.a(lib_a-findfp.o)
-                0x0000000000001cf8                __sf_fake_stdin
+                0x0000000000001d00       0x20 /home/jeanfrancois/riscv/MounRiver_Studio_Community_Linux_x64_V160/MRS_Community/toolchain/RISC-V Embedded GCC/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32ec/ilp32e/libg_nano.a(lib_a-findfp.o)
+                0x0000000000001d00                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x0000000000001d18       0x20 /home/jeanfrancois/riscv/MounRiver_Studio_Community_Linux_x64_V160/MRS_Community/toolchain/RISC-V Embedded GCC/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32ec/ilp32e/libg_nano.a(lib_a-findfp.o)
-                0x0000000000001d18                __sf_fake_stdout
+                0x0000000000001d20       0x20 /home/jeanfrancois/riscv/MounRiver_Studio_Community_Linux_x64_V160/MRS_Community/toolchain/RISC-V Embedded GCC/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32ec/ilp32e/libg_nano.a(lib_a-findfp.o)
+                0x0000000000001d20                __sf_fake_stdout
  .rodata._vfprintf_r.str1.4
-                0x0000000000001d38       0x13 /home/jeanfrancois/riscv/MounRiver_Studio_Community_Linux_x64_V160/MRS_Community/toolchain/RISC-V Embedded GCC/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32ec/ilp32e/libg_nano.a(lib_a-nano-vfprintf.o)
- *fill*         0x0000000000001d4b        0x1 
+                0x0000000000001d40       0x13 /home/jeanfrancois/riscv/MounRiver_Studio_Community_Linux_x64_V160/MRS_Community/toolchain/RISC-V Embedded GCC/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32ec/ilp32e/libg_nano.a(lib_a-nano-vfprintf.o)
+ *fill*         0x0000000000001d53        0x1 
  .rodata._printf_i.str1.4
-                0x0000000000001d4c       0x28 /home/jeanfrancois/riscv/MounRiver_Studio_Community_Linux_x64_V160/MRS_Community/toolchain/RISC-V Embedded GCC/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32ec/ilp32e/libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000000001d54       0x28 /home/jeanfrancois/riscv/MounRiver_Studio_Community_Linux_x64_V160/MRS_Community/toolchain/RISC-V Embedded GCC/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32ec/ilp32e/libg_nano.a(lib_a-nano-vfprintf_i.o)
                                          0x25 (size before relaxing)
  *(.gnu.linkonce.t.*)
-                0x0000000000001d74                . = ALIGN (0x4)
+                0x0000000000001d7c                . = ALIGN (0x4)
 
-.rela.dyn       0x0000000000001d74        0x0
- .rela.init     0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+.rela.dyn       0x0000000000001d7c        0x0
+ .rela.init     0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text.handle_reset
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._sbrk
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.data.curbrk.4087
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._vfprintf_r
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._sbrk_r
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._write_r
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._close_r
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._fstat_r
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._isatty_r
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._lseek_r
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._read_r
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._close
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._fstat
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._isatty
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._lseek
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
  .rela.text._read
-                0x0000000000001d74        0x0 ./User/ch32v00x_it.o
+                0x0000000000001d7c        0x0 ./User/ch32v00x_it.o
 
-.fini           0x0000000000001d74        0x0
+.fini           0x0000000000001d7c        0x0
  *(SORT_NONE(.fini))
-                0x0000000000001d74                . = ALIGN (0x4)
+                0x0000000000001d7c                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_etext = .)
                 [!provide]                        PROVIDE (_eitcm = .)
 
-.preinit_array  0x0000000000001d74        0x0
+.preinit_array  0x0000000000001d7c        0x0
                 [!provide]                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
                 [!provide]                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0000000000001d74        0x0
+.init_array     0x0000000000001d7c        0x0
                 [!provide]                        PROVIDE (__init_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
  *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
                 [!provide]                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x0000000000001d74        0x0
+.fini_array     0x0000000000001d7c        0x0
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
  *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
@@ -1497,15 +1497,15 @@ END GROUP
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
 
-.dalign         0x0000000020000000        0x0 load address 0x0000000000001d74
+.dalign         0x0000000020000000        0x0 load address 0x0000000000001d7c
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                PROVIDE (_data_vma = .)
 
-.dlalign        0x0000000000001d74        0x0
-                0x0000000000001d74                . = ALIGN (0x4)
-                0x0000000000001d74                PROVIDE (_data_lma = .)
+.dlalign        0x0000000000001d7c        0x0
+                0x0000000000001d7c                . = ALIGN (0x4)
+                0x0000000000001d7c                PROVIDE (_data_lma = .)
 
-.data           0x0000000020000000      0x110 load address 0x0000000000001d74
+.data           0x0000000020000000      0x110 load address 0x0000000000001d7c
                 0x0000000020000000                . = ALIGN (0x4)
  *(.gnu.linkonce.r.*)
  *(.data .data.*)
@@ -1552,7 +1552,7 @@ END GROUP
                 0x0000000020000110                . = ALIGN (0x4)
                 0x0000000020000110                PROVIDE (_edata = .)
 
-.bss            0x0000000020000110       0x18 load address 0x0000000000001e84
+.bss            0x0000000020000110       0x18 load address 0x0000000000001e8c
                 0x0000000020000110                . = ALIGN (0x4)
                 0x0000000020000110                PROVIDE (_sbss = .)
  *(.sbss*)
