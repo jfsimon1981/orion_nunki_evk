@@ -5,6 +5,7 @@
   * Microcontroller: CH32V003
 
 ```
+		/*
 		 * === Fast GPIO commands ===
 		 *
 		 * int v0 = GPIO_01_DIGITAL_READ();
