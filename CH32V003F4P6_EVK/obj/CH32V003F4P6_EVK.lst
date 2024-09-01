@@ -7,8 +7,8 @@ start address 0x00000000
 
 Program Header:
     LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
-         filesz 0x00001da0 memsz 0x00001da0 flags r-x
-    LOAD off    0x00003000 vaddr 0x20000000 paddr 0x00001da0 align 2**12
+         filesz 0x00001d9c memsz 0x00001d9c flags r-x
+    LOAD off    0x00003000 vaddr 0x20000000 paddr 0x00001d9c align 2**12
          filesz 0x00000110 memsz 0x00000128 flags rw-
     LOAD off    0x00003700 vaddr 0x20000700 paddr 0x20000700 align 2**12
          filesz 0x00000000 memsz 0x00000100 flags rw-
@@ -17,17 +17,17 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .init         000000a0  00000000  00000000  00001000  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .text         00001d00  000000a0  000000a0  000010a0  2**2
+  1 .text         00001cfc  000000a0  000000a0  000010a0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .fini         00000000  00001da0  00001da0  00003110  2**0
+  2 .fini         00000000  00001d9c  00001d9c  00003110  2**0
                   CONTENTS, ALLOC, LOAD, CODE
   3 .dalign       00000000  20000000  20000000  00003110  2**0
                   CONTENTS
-  4 .dlalign      00000000  00001da0  00001da0  00003110  2**0
+  4 .dlalign      00000000  00001d9c  00001d9c  00003110  2**0
                   CONTENTS
-  5 .data         00000110  20000000  00001da0  00003000  2**2
+  5 .data         00000110  20000000  00001d9c  00003000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .bss          00000018  20000110  00001eb0  00003110  2**2
+  6 .bss          00000018  20000110  00001eac  00003110  2**2
                   ALLOC
   7 .stack        00000100  20000700  20000700  00003700  2**0
                   ALLOC
@@ -56,9 +56,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
 SYMBOL TABLE:
 00000000 l    d  .init	00000000 .init
 000000a0 l    d  .text	00000000 .text
-00001da0 l    d  .fini	00000000 .fini
+00001d9c l    d  .fini	00000000 .fini
 20000000 l    d  .dalign	00000000 .dalign
-00001da0 l    d  .dlalign	00000000 .dlalign
+00001d9c l    d  .dlalign	00000000 .dlalign
 20000000 l    d  .data	00000000 .data
 20000110 l    d  .bss	00000000 .bss
 20000700 l    d  .stack	00000000 .stack
@@ -178,7 +178,7 @@ SYMBOL TABLE:
 000008f2 g     F .text	00000034 Delay_Init
 00000706 g     F .text	0000000a GPIO_WriteBit
 00000100 g     F .text	00000008 .hidden __umodsi3
-00001d04 g     O .text	00000020 __sf_fake_stderr
+00001d00 g     O .text	00000020 __sf_fake_stderr
 00000596  w      .text	00000000 I2C1_EV_IRQHandler
 00000716 g     F .text	0000009a RCC_GetClocksFreq
 00000590  w      .text	00000000 DMA1_Channel6_IRQHandler
@@ -201,7 +201,7 @@ SYMBOL TABLE:
 00001ab2 g     F .text	00000030 __sread
 00001c5a g     F .text	00000002 __malloc_lock
 00000e5a g     F .text	00000064 _fflush_r
-00001d24 g     O .text	00000020 __sf_fake_stdin
+00001d20 g     O .text	00000020 __sf_fake_stdin
 0000014a g     F .text	000000a8 memset
 000001f8 g     F .text	000000c0 main
 00001b66 g     F .text	00000006 __sclose
@@ -230,14 +230,14 @@ SYMBOL TABLE:
 20000110 g       .data	00000000 _edata
 20000128 g       .bss	00000000 _end
 00000348 g     F .text	0000006a user_init
-00001da0 g       .dlalign	00000000 _data_lma
+00001d9c g       .dlalign	00000000 _data_lma
 00001ae2 g     F .text	0000004e __swrite
 000013d8 g     F .text	000002c2 _vfiprintf_r
 00001082 g     F .text	00000060 _fwalk_reent
 00000508 g     F .text	0000006a SystemCoreClockUpdate
 00000124 g     F .text	00000024 .hidden __modsi3
 00000588  w      .text	00000000 DMA1_Channel2_IRQHandler
-00001d44 g     O .text	00000020 __sf_fake_stdout
+00001d40 g     O .text	00000020 __sf_fake_stdout
 00001cba g     F .text	0000000c _read
 000005a8  w      .text	00000000 handle_reset
 0000057e  w      .text	00000000 FLASH_IRQHandler
@@ -539,7 +539,7 @@ Disassembly of section .text:
      2c0:	24a1                	jal	508 <SystemCoreClockUpdate>
      2c2:	2d05                	jal	8f2 <Delay_Init>
      2c4:	6571                	lui	a0,0x1c
-     2c6:	20050513          	addi	a0,a0,512 # 1c200 <_data_lma+0x1a460>
+     2c6:	20050513          	addi	a0,a0,512 # 1c200 <_data_lma+0x1a464>
      2ca:	2d59                	jal	960 <USART_Printf_Init>
      2cc:	bbf9                	j	aa <__riscv_restore_0>
 
@@ -548,7 +548,7 @@ Disassembly of section .text:
      2d2:	6511                	lui	a0,0x4
      2d4:	1111                	addi	sp,sp,-28
      2d6:	4585                	li	a1,1
-     2d8:	02050513          	addi	a0,a0,32 # 4020 <_data_lma+0x2280>
+     2d8:	02050513          	addi	a0,a0,32 # 4020 <_data_lma+0x2284>
      2dc:	c002                	sw	zero,0(sp)
      2de:	c202                	sw	zero,4(sp)
      2e0:	c402                	sw	zero,8(sp)
@@ -576,7 +576,7 @@ Disassembly of section .text:
      31a:	2e11                	jal	62e <GPIO_Init>
      31c:	67f1                	lui	a5,0x1c
      31e:	40014437          	lui	s0,0x40014
-     322:	20078793          	addi	a5,a5,512 # 1c200 <_data_lma+0x1a460>
+     322:	20078793          	addi	a5,a5,512 # 1c200 <_data_lma+0x1a464>
      326:	c63e                	sw	a5,12(sp)
      328:	006c                	addi	a1,sp,12
      32a:	000c07b7          	lui	a5,0xc0
@@ -601,12 +601,12 @@ Disassembly of section .text:
      35c:	200007b7          	lui	a5,0x20000
      360:	0787a583          	lw	a1,120(a5) # 20000078 <SystemCoreClock>
      364:	00002537          	lui	a0,0x2
-     368:	ce450513          	addi	a0,a0,-796 # 1ce4 <_read+0x2a>
+     368:	ce050513          	addi	a0,a0,-800 # 1ce0 <_read+0x26>
      36c:	2d75                	jal	a28 <iprintf>
      36e:	2c5d                	jal	624 <DBGMCU_GetCHIPID>
      370:	85aa                	mv	a1,a0
      372:	00002537          	lui	a0,0x2
-     376:	cf450513          	addi	a0,a0,-780 # 1cf4 <_read+0x3a>
+     376:	cf050513          	addi	a0,a0,-784 # 1cf0 <_read+0x36>
      37a:	257d                	jal	a28 <iprintf>
      37c:	4585                	li	a1,1
      37e:	03000513          	li	a0,48
@@ -775,7 +775,7 @@ Disassembly of section .text:
      522:	46a1                	li	a3,8
      524:	04d78163          	beq	a5,a3,566 <SystemCoreClockUpdate+0x5e>
      528:	016e37b7          	lui	a5,0x16e3
-     52c:	60078793          	addi	a5,a5,1536 # 16e3600 <_data_lma+0x16e1860>
+     52c:	60078793          	addi	a5,a5,1536 # 16e3600 <_data_lma+0x16e1864>
      530:	c01c                	sw	a5,0(s0)
      532:	400216b7          	lui	a3,0x40021
      536:	42dc                	lw	a5,4(a3)
@@ -797,7 +797,7 @@ Disassembly of section .text:
      564:	b699                	j	aa <__riscv_restore_0>
      566:	435c                	lw	a5,4(a4)
      568:	02dc77b7          	lui	a5,0x2dc7
-     56c:	c0078793          	addi	a5,a5,-1024 # 2dc6c00 <_data_lma+0x2dc4e60>
+     56c:	c0078793          	addi	a5,a5,-1024 # 2dc6c00 <_data_lma+0x2dc4e64>
      570:	b7c1                	j	530 <SystemCoreClockUpdate+0x28>
      572:	a001                	j	572 <SystemCoreClockUpdate+0x6a>
      574:	a001                	j	574 <SystemCoreClockUpdate+0x6c>
@@ -882,7 +882,7 @@ Disassembly of section .text:
      5ac:	36018193          	addi	gp,gp,864 # 20000908 <__global_pointer$>
      5b0:	ef818113          	addi	sp,gp,-264 # 20000800 <_eusrstack>
      5b4:	00001517          	auipc	a0,0x1
-     5b8:	7ec50513          	addi	a0,a0,2028 # 1da0 <_data_lma>
+     5b8:	7e850513          	addi	a0,a0,2024 # 1d9c <_data_lma>
      5bc:	20000597          	auipc	a1,0x20000
      5c0:	a4458593          	addi	a1,a1,-1468 # 20000000 <_data_vma>
      5c4:	80818613          	addi	a2,gp,-2040 # 20000110 <_edata>
@@ -914,7 +914,7 @@ Disassembly of section .text:
 
 00000624 <DBGMCU_GetCHIPID>:
      624:	1ffff7b7          	lui	a5,0x1ffff
-     628:	7c47a503          	lw	a0,1988(a5) # 1ffff7c4 <_data_lma+0x1fffda24>
+     628:	7c47a503          	lw	a0,1988(a5) # 1ffff7c4 <_data_lma+0x1fffda28>
      62c:	8082                	ret
 
 0000062e <GPIO_Init>:
@@ -1008,7 +1008,7 @@ Disassembly of section .text:
      72a:	46a1                	li	a3,8
      72c:	06d78c63          	beq	a5,a3,7a4 <RCC_GetClocksFreq+0x8e>
      730:	016e37b7          	lui	a5,0x16e3
-     734:	60078793          	addi	a5,a5,1536 # 16e3600 <_data_lma+0x16e1860>
+     734:	60078793          	addi	a5,a5,1536 # 16e3600 <_data_lma+0x16e1864>
      738:	c01c                	sw	a5,0(s0)
      73a:	400216b7          	lui	a3,0x40021
      73e:	42dc                	lw	a5,4(a3)
@@ -1050,7 +1050,7 @@ Disassembly of section .text:
      7a2:	b221                	j	aa <__riscv_restore_0>
      7a4:	435c                	lw	a5,4(a4)
      7a6:	02dc77b7          	lui	a5,0x2dc7
-     7aa:	c0078793          	addi	a5,a5,-1024 # 2dc6c00 <_data_lma+0x2dc4e60>
+     7aa:	c0078793          	addi	a5,a5,-1024 # 2dc6c00 <_data_lma+0x2dc4e64>
      7ae:	b769                	j	738 <RCC_GetClocksFreq+0x22>
 
 000007b0 <RCC_APB2PeriphClockCmd>:
@@ -1183,7 +1183,7 @@ Disassembly of section .text:
      8f6:	200007b7          	lui	a5,0x20000
      8fa:	0787a503          	lw	a0,120(a5) # 20000078 <SystemCoreClock>
      8fe:	007a15b7          	lui	a1,0x7a1
-     902:	20058593          	addi	a1,a1,512 # 7a1200 <_data_lma+0x79f460>
+     902:	20058593          	addi	a1,a1,512 # 7a1200 <_data_lma+0x79f464>
      906:	fceff0ef          	jal	ra,d4 <__udivsi3>
      90a:	0ff57513          	andi	a0,a0,255
      90e:	80a18d23          	sb	a0,-2022(gp) # 20000122 <p_us>
@@ -1224,7 +1224,7 @@ Disassembly of section .text:
      966:	6511                	lui	a0,0x4
      968:	1111                	addi	sp,sp,-28
      96a:	4585                	li	a1,1
-     96c:	02050513          	addi	a0,a0,32 # 4020 <_data_lma+0x2280>
+     96c:	02050513          	addi	a0,a0,32 # 4020 <_data_lma+0x2284>
      970:	3581                	jal	7b0 <RCC_APB2PeriphClockCmd>
      972:	02000793          	li	a5,32
      976:	00f11023          	sh	a5,0(sp)
@@ -1268,7 +1268,7 @@ Disassembly of section .text:
      9de:	4602                	lw	a2,0(sp)
      9e0:	d575                	beqz	a0,9cc <_write+0x16>
      9e2:	00848733          	add	a4,s1,s0
-     9e6:	00070583          	lb	a1,0(a4) # 2000 <_data_lma+0x260>
+     9e6:	00070583          	lb	a1,0(a4) # 2000 <_data_lma+0x264>
      9ea:	80078513          	addi	a0,a5,-2048
      9ee:	0405                	addi	s0,s0,1
      9f0:	05c2                	slli	a1,a1,0x10
@@ -1343,7 +1343,7 @@ Disassembly of section .text:
      a86:	8526                	mv	a0,s1
      a88:	29cd                	jal	f7a <__sinit>
      a8a:	00001717          	auipc	a4,0x1
-     a8e:	29a70713          	addi	a4,a4,666 # 1d24 <__sf_fake_stdin>
+     a8e:	29670713          	addi	a4,a4,662 # 1d20 <__sf_fake_stdin>
      a92:	02e41363          	bne	s0,a4,ab8 <_puts_r+0x4c>
      a96:	40c0                	lw	s0,4(s1)
      a98:	00c45703          	lhu	a4,12(s0)
@@ -1362,12 +1362,12 @@ Disassembly of section .text:
      ab4:	0141                	addi	sp,sp,16
      ab6:	8082                	ret
      ab8:	00001717          	auipc	a4,0x1
-     abc:	28c70713          	addi	a4,a4,652 # 1d44 <__sf_fake_stdout>
+     abc:	28870713          	addi	a4,a4,648 # 1d40 <__sf_fake_stdout>
      ac0:	00e41463          	bne	s0,a4,ac8 <_puts_r+0x5c>
      ac4:	4480                	lw	s0,8(s1)
      ac6:	bfc9                	j	a98 <_puts_r+0x2c>
      ac8:	00001717          	auipc	a4,0x1
-     acc:	23c70713          	addi	a4,a4,572 # 1d04 <__sf_fake_stderr>
+     acc:	23870713          	addi	a4,a4,568 # 1d00 <__sf_fake_stderr>
      ad0:	fce414e3          	bne	s0,a4,a98 <_puts_r+0x2c>
      ad4:	44c0                	lw	s0,12(s1)
      ad6:	b7c9                	j	a98 <_puts_r+0x2c>
@@ -1434,7 +1434,7 @@ Disassembly of section .text:
      b62:	2921                	jal	f7a <__sinit>
      b64:	4782                	lw	a5,0(sp)
      b66:	00001717          	auipc	a4,0x1
-     b6a:	1be70713          	addi	a4,a4,446 # 1d24 <__sf_fake_stdin>
+     b6a:	1ba70713          	addi	a4,a4,442 # 1d20 <__sf_fake_stdin>
      b6e:	06e41b63          	bne	s0,a4,be4 <__swbuf_r+0x98>
      b72:	43c0                	lw	s0,4(a5)
      b74:	4c18                	lw	a4,24(s0)
@@ -1485,12 +1485,12 @@ Disassembly of section .text:
      be0:	0151                	addi	sp,sp,20
      be2:	8082                	ret
      be4:	00001717          	auipc	a4,0x1
-     be8:	16070713          	addi	a4,a4,352 # 1d44 <__sf_fake_stdout>
+     be8:	15c70713          	addi	a4,a4,348 # 1d40 <__sf_fake_stdout>
      bec:	00e41463          	bne	s0,a4,bf4 <__swbuf_r+0xa8>
      bf0:	4780                	lw	s0,8(a5)
      bf2:	b749                	j	b74 <__swbuf_r+0x28>
      bf4:	00001717          	auipc	a4,0x1
-     bf8:	11070713          	addi	a4,a4,272 # 1d04 <__sf_fake_stderr>
+     bf8:	10c70713          	addi	a4,a4,268 # 1d00 <__sf_fake_stderr>
      bfc:	f6e41ce3          	bne	s0,a4,b74 <__swbuf_r+0x28>
      c00:	47c0                	lw	s0,12(a5)
      c02:	bf8d                	j	b74 <__swbuf_r+0x28>
@@ -1521,7 +1521,7 @@ Disassembly of section .text:
      c34:	2699                	jal	f7a <__sinit>
      c36:	4682                	lw	a3,0(sp)
      c38:	00001797          	auipc	a5,0x1
-     c3c:	0ec78793          	addi	a5,a5,236 # 1d24 <__sf_fake_stdin>
+     c3c:	0e878793          	addi	a5,a5,232 # 1d20 <__sf_fake_stdin>
      c40:	02f41a63          	bne	s0,a5,c74 <__swsetup_r+0x60>
      c44:	40c0                	lw	s0,4(s1)
      c46:	00c41703          	lh	a4,12(s0)
@@ -1542,12 +1542,12 @@ Disassembly of section .text:
      c70:	0141                	addi	sp,sp,16
      c72:	8082                	ret
      c74:	00001797          	auipc	a5,0x1
-     c78:	0d078793          	addi	a5,a5,208 # 1d44 <__sf_fake_stdout>
+     c78:	0cc78793          	addi	a5,a5,204 # 1d40 <__sf_fake_stdout>
      c7c:	00f41463          	bne	s0,a5,c84 <__swsetup_r+0x70>
      c80:	4480                	lw	s0,8(s1)
      c82:	b7d1                	j	c46 <__swsetup_r+0x32>
      c84:	00001797          	auipc	a5,0x1
-     c88:	08078793          	addi	a5,a5,128 # 1d04 <__sf_fake_stderr>
+     c88:	07c78793          	addi	a5,a5,124 # 1d00 <__sf_fake_stderr>
      c8c:	faf41de3          	bne	s0,a5,c46 <__swsetup_r+0x32>
      c90:	44c0                	lw	s0,12(s1)
      c92:	bf55                	j	c46 <__swsetup_r+0x32>
@@ -1742,7 +1742,7 @@ Disassembly of section .text:
      e6e:	2231                	jal	f7a <__sinit>
      e70:	4582                	lw	a1,0(sp)
      e72:	00001797          	auipc	a5,0x1
-     e76:	eb278793          	addi	a5,a5,-334 # 1d24 <__sf_fake_stdin>
+     e76:	eae78793          	addi	a5,a5,-338 # 1d20 <__sf_fake_stdin>
      e7a:	00f59b63          	bne	a1,a5,e90 <_fflush_r+0x36>
      e7e:	404c                	lw	a1,4(s0)
      e80:	00c59783          	lh	a5,12(a1)
@@ -1753,12 +1753,12 @@ Disassembly of section .text:
      e8c:	0141                	addi	sp,sp,16
      e8e:	bd61                	j	d26 <__sflush_r>
      e90:	00001797          	auipc	a5,0x1
-     e94:	eb478793          	addi	a5,a5,-332 # 1d44 <__sf_fake_stdout>
+     e94:	eb078793          	addi	a5,a5,-336 # 1d40 <__sf_fake_stdout>
      e98:	00f59463          	bne	a1,a5,ea0 <_fflush_r+0x46>
      e9c:	440c                	lw	a1,8(s0)
      e9e:	b7cd                	j	e80 <_fflush_r+0x26>
      ea0:	00001797          	auipc	a5,0x1
-     ea4:	e6478793          	addi	a5,a5,-412 # 1d04 <__sf_fake_stderr>
+     ea4:	e6078793          	addi	a5,a5,-416 # 1d00 <__sf_fake_stderr>
      ea8:	fcf59ce3          	bne	a1,a5,e80 <_fflush_r+0x26>
      eac:	444c                	lw	a1,12(s0)
      eae:	bfc9                	j	e80 <_fflush_r+0x26>
@@ -2317,7 +2317,7 @@ Disassembly of section .text:
     13f8:	3649                	jal	f7a <__sinit>
     13fa:	46b2                	lw	a3,12(sp)
     13fc:	00001717          	auipc	a4,0x1
-    1400:	92870713          	addi	a4,a4,-1752 # 1d24 <__sf_fake_stdin>
+    1400:	92470713          	addi	a4,a4,-1756 # 1d20 <__sf_fake_stdin>
     1404:	0ee41763          	bne	s0,a4,14f2 <_vfiprintf_r+0x11a>
     1408:	4782                	lw	a5,0(sp)
     140a:	43c0                	lw	s0,4(a5)
@@ -2367,7 +2367,7 @@ Disassembly of section .text:
     148e:	00034583          	lbu	a1,0(t1)
     1492:	4615                	li	a2,5
     1494:	00001517          	auipc	a0,0x1
-    1498:	8d050513          	addi	a0,a0,-1840 # 1d64 <__sf_fake_stdout+0x20>
+    1498:	8cc50513          	addi	a0,a0,-1844 # 1d60 <__sf_fake_stdout+0x20>
     149c:	c21a                	sw	t1,4(sp)
     149e:	7a2000ef          	jal	ra,1c40 <memchr>
     14a2:	4312                	lw	t1,4(sp)
@@ -2391,19 +2391,19 @@ Disassembly of section .text:
     14da:	4525                	li	a0,9
     14dc:	00074603          	lbu	a2,0(a4)
     14e0:	00170313          	addi	t1,a4,1
-    14e4:	fd060613          	addi	a2,a2,-48 # 1ffd0 <_data_lma+0x1e230>
+    14e4:	fd060613          	addi	a2,a2,-48 # 1ffd0 <_data_lma+0x1e234>
     14e8:	0ac57a63          	bgeu	a0,a2,159c <_vfiprintf_r+0x1c4>
     14ec:	c9bd                	beqz	a1,1562 <_vfiprintf_r+0x18a>
     14ee:	c4d4                	sw	a3,12(s1)
     14f0:	a88d                	j	1562 <_vfiprintf_r+0x18a>
     14f2:	00001717          	auipc	a4,0x1
-    14f6:	85270713          	addi	a4,a4,-1966 # 1d44 <__sf_fake_stdout>
+    14f6:	84e70713          	addi	a4,a4,-1970 # 1d40 <__sf_fake_stdout>
     14fa:	00e41563          	bne	s0,a4,1504 <_vfiprintf_r+0x12c>
     14fe:	4782                	lw	a5,0(sp)
     1500:	4780                	lw	s0,8(a5)
     1502:	b729                	j	140c <_vfiprintf_r+0x34>
-    1504:	00001717          	auipc	a4,0x1
-    1508:	80070713          	addi	a4,a4,-2048 # 1d04 <__sf_fake_stderr>
+    1504:	00000717          	auipc	a4,0x0
+    1508:	7fc70713          	addi	a4,a4,2044 # 1d00 <__sf_fake_stderr>
     150c:	f0e410e3          	bne	s0,a4,140c <_vfiprintf_r+0x34>
     1510:	4782                	lw	a5,0(sp)
     1512:	47c0                	lw	s0,12(a5)
@@ -2423,7 +2423,7 @@ Disassembly of section .text:
     1534:	0705                	addi	a4,a4,1
     1536:	b709                	j	1438 <_vfiprintf_r+0x60>
     1538:	00001617          	auipc	a2,0x1
-    153c:	82c60613          	addi	a2,a2,-2004 # 1d64 <__sf_fake_stdout+0x20>
+    153c:	82860613          	addi	a2,a2,-2008 # 1d60 <__sf_fake_stdout+0x20>
     1540:	40c50633          	sub	a2,a0,a2
     1544:	4505                	li	a0,1
     1546:	00c51533          	sll	a0,a0,a2
@@ -2478,13 +2478,13 @@ Disassembly of section .text:
     15d0:	00074583          	lbu	a1,0(a4)
     15d4:	460d                	li	a2,3
     15d6:	00000517          	auipc	a0,0x0
-    15da:	79650513          	addi	a0,a0,1942 # 1d6c <__sf_fake_stdout+0x28>
+    15da:	79250513          	addi	a0,a0,1938 # 1d68 <__sf_fake_stdout+0x28>
     15de:	c23a                	sw	a4,4(sp)
     15e0:	2585                	jal	1c40 <memchr>
     15e2:	4712                	lw	a4,4(sp)
     15e4:	cd11                	beqz	a0,1600 <_vfiprintf_r+0x228>
     15e6:	00000697          	auipc	a3,0x0
-    15ea:	78668693          	addi	a3,a3,1926 # 1d6c <__sf_fake_stdout+0x28>
+    15ea:	78268693          	addi	a3,a3,1922 # 1d68 <__sf_fake_stdout+0x28>
     15ee:	8d15                	sub	a0,a0,a3
     15f0:	04000693          	li	a3,64
     15f4:	00a696b3          	sll	a3,a3,a0
@@ -2496,7 +2496,7 @@ Disassembly of section .text:
     1604:	00170793          	addi	a5,a4,1
     1608:	4619                	li	a2,6
     160a:	00000517          	auipc	a0,0x0
-    160e:	76650513          	addi	a0,a0,1894 # 1d70 <__sf_fake_stdout+0x2c>
+    160e:	76250513          	addi	a0,a0,1890 # 1d6c <__sf_fake_stdout+0x2c>
     1612:	c23e                	sw	a5,4(sp)
     1614:	00b48c23          	sb	a1,24(s1)
     1618:	2525                	jal	1c40 <memchr>
@@ -2709,7 +2709,7 @@ Disassembly of section .text:
     1838:	40d006b3          	neg	a3,a3
     183c:	04e401a3          	sb	a4,67(s0)
     1840:	00000617          	auipc	a2,0x0
-    1844:	53860613          	addi	a2,a2,1336 # 1d78 <__sf_fake_stdout+0x34>
+    1844:	53460613          	addi	a2,a2,1332 # 1d74 <__sf_fake_stdout+0x34>
     1848:	4729                	li	a4,10
     184a:	a85d                	j	1900 <_printf_i+0x13a>
     184c:	07000693          	li	a3,112
@@ -2770,7 +2770,7 @@ Disassembly of section .text:
     18ea:	06f00713          	li	a4,111
     18ee:	10e60363          	beq	a2,a4,19f4 <_printf_i+0x22e>
     18f2:	00000617          	auipc	a2,0x0
-    18f6:	48660613          	addi	a2,a2,1158 # 1d78 <__sf_fake_stdout+0x34>
+    18f6:	48260613          	addi	a2,a2,1154 # 1d74 <__sf_fake_stdout+0x34>
     18fa:	4729                	li	a4,10
     18fc:	040401a3          	sb	zero,67(s0)
     1900:	404c                	lw	a1,4(s0)
@@ -2834,7 +2834,7 @@ Disassembly of section .text:
     1990:	8082                	ret
     1992:	04c582a3          	sb	a2,69(a1)
     1996:	00000617          	auipc	a2,0x0
-    199a:	3e260613          	addi	a2,a2,994 # 1d78 <__sf_fake_stdout+0x34>
+    199a:	3de60613          	addi	a2,a2,990 # 1d74 <__sf_fake_stdout+0x34>
     199e:	400c                	lw	a1,0(s0)
     19a0:	4308                	lw	a0,0(a4)
     19a2:	0805f313          	andi	t1,a1,128
@@ -2858,7 +2858,7 @@ Disassembly of section .text:
     19d2:	07800693          	li	a3,120
     19d6:	04d402a3          	sb	a3,69(s0)
     19da:	00000617          	auipc	a2,0x0
-    19de:	3b260613          	addi	a2,a2,946 # 1d8c <__sf_fake_stdout+0x48>
+    19de:	3ae60613          	addi	a2,a2,942 # 1d88 <__sf_fake_stdout+0x48>
     19e2:	bf75                	j	199e <_printf_i+0x1d8>
     19e4:	0405f313          	andi	t1,a1,64
     19e8:	c308                	sw	a0,0(a4)
@@ -2867,7 +2867,7 @@ Disassembly of section .text:
     19f0:	82c1                	srli	a3,a3,0x10
     19f2:	bf7d                	j	19b0 <_printf_i+0x1ea>
     19f4:	00000617          	auipc	a2,0x0
-    19f8:	38460613          	addi	a2,a2,900 # 1d78 <__sf_fake_stdout+0x34>
+    19f8:	38060613          	addi	a2,a2,896 # 1d74 <__sf_fake_stdout+0x34>
     19fc:	4721                	li	a4,8
     19fe:	bdfd                	j	18fc <_printf_i+0x136>
     1a00:	86aa                	mv	a3,a0
@@ -3201,40 +3201,39 @@ Disassembly of section .text:
     1cc4:	8082                	ret
     1cc6:	0000                	unimp
     1cc8:	0d0a                	slli	s10,s10,0x2
-    1cca:	4e20                	lw	s0,88(a2)
-    1ccc:	6e75                	lui	t3,0x1d
-    1cce:	4220696b          	0x4220696b
-    1cd2:	6472616f          	jal	sp,28b18 <_data_lma+0x26d78>
-    1cd6:	5220                	lw	s0,96(a2)
-    1cd8:	6e75                	lui	t3,0x1d
-    1cda:	696e                	flw	fs2,216(sp)
-    1cdc:	676e                	flw	fa4,216(sp)
-    1cde:	0d20                	addi	s0,sp,664
-    1ce0:	0000                	unimp
-    1ce2:	0000                	unimp
-    1ce4:	74737953          	0x74737953
-    1ce8:	6d65                	lui	s10,0x19
-    1cea:	3a6b6c43          	fmadd.d	fs8,fs6,ft6,ft7,unknown
-    1cee:	6425                	lui	s0,0x9
-    1cf0:	0a0d                	addi	s4,s4,3
-    1cf2:	0000                	unimp
-    1cf4:	70696843          	fmadd.s	fa6,fs2,ft6,fa4,unknown
-    1cf8:	4449                	li	s0,18
-    1cfa:	253a                	fld	fa0,392(sp)
-    1cfc:	3830                	fld	fa2,112(s0)
-    1cfe:	0d78                	addi	a4,sp,668
-    1d00:	000a                	c.slli	zero,0x2
+    1cca:	754e                	flw	fa0,240(sp)
+    1ccc:	6b6e                	flw	fs6,216(sp)
+    1cce:	2069                	jal	1d58 <__sf_fake_stdout+0x18>
+    1cd0:	6f42                	flw	ft10,16(sp)
+    1cd2:	7261                	lui	tp,0xffff8
+    1cd4:	2064                	fld	fs1,192(s0)
+    1cd6:	7552                	flw	fa0,52(sp)
+    1cd8:	6e6e                	flw	ft8,216(sp)
+    1cda:	6e69                	lui	t3,0x1a
+    1cdc:	000d2067          	0xd2067
+    1ce0:	74737953          	0x74737953
+    1ce4:	6d65                	lui	s10,0x19
+    1ce6:	3a6b6c43          	fmadd.d	fs8,fs6,ft6,ft7,unknown
+    1cea:	6425                	lui	s0,0x9
+    1cec:	0a0d                	addi	s4,s4,3
+    1cee:	0000                	unimp
+    1cf0:	70696843          	fmadd.s	fa6,fs2,ft6,fa4,unknown
+    1cf4:	4449                	li	s0,18
+    1cf6:	253a                	fld	fa0,392(sp)
+    1cf8:	3830                	fld	fa2,112(s0)
+    1cfa:	0d78                	addi	a4,sp,668
+    1cfc:	000a                	c.slli	zero,0x2
 	...
 
-00001d04 <__sf_fake_stderr>:
+00001d00 <__sf_fake_stderr>:
 	...
 
-00001d24 <__sf_fake_stdin>:
+00001d20 <__sf_fake_stdin>:
 	...
 
-00001d44 <__sf_fake_stdout>:
+00001d40 <__sf_fake_stdout>:
 	...
-    1d64:	2d23 2b30 0020 0000 6c68 004c 6665 4567     #-0+ ...hlL.efgE
-    1d74:	4746 0000 3130 3332 3534 3736 3938 4241     FG..0123456789AB
-    1d84:	4443 4645 0000 0000 3130 3332 3534 3736     CDEF....01234567
-    1d94:	3938 6261 6463 6665 0000 0000               89abcdef....
+    1d60:	2d23 2b30 0020 0000 6c68 004c 6665 4567     #-0+ ...hlL.efgE
+    1d70:	4746 0000 3130 3332 3534 3736 3938 4241     FG..0123456789AB
+    1d80:	4443 4645 0000 0000 3130 3332 3534 3736     CDEF....01234567
+    1d90:	3938 6261 6463 6665 0000 0000               89abcdef....

@@ -14,7 +14,7 @@ void user_init() {
 	USARTx_CFG();
 	// Display System properties on boot
 	{
-		printf("\n\r Nunki Board Running \r\n");
+		printf("\n\rNunki Board Running \r\n");
 		printf("SystemClk:%d\r\n",SystemCoreClock);
 		printf("ChipID:%08x\r\n", DBGMCU_GetCHIPID());
 	}

@@ -13,6 +13,12 @@ echo -n -e "3\r" > /dev/ttyACM0 # LED Toggle
   - Connect to Serial console:
 ```
 cu -l /dev/ttyACM0 -s 115200
+
+# Reset PB pressed / Boot message displayed:
+
+Nunki Board Running 
+SystemClk:48000000
+ChipID:00300500
 ```
   - GPIO manipulation example
 ```
