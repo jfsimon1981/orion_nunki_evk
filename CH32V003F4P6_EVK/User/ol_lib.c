@@ -2,7 +2,8 @@
  * orion_lib.c
  *
  *  Created on: Aug 5, 2024
- *      Author: jeanfrancois
+ *  Author: jeanfrancois
+ *  v1.1.100 1-Sep-2024
  */
 
 #include <ol_lib.h>

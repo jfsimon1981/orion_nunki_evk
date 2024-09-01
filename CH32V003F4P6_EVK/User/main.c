@@ -1,8 +1,8 @@
 /********************************** (C) COPYRIGHT *******************************
  * File Name          : main.c
  * Author             : Chrysalide-Engineering
- * Version            : V1.0
- * Date               : 10/8/24
+ * Version            : V1.1
+ * Date               : 1-Sep-2024
  * Description        : Main program body.
  *********************************************************************************
  * Copyright (c) 2024 Chrysalide-Engineering
