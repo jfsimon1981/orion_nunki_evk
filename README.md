@@ -4,6 +4,17 @@
   * Supports Nunki-Generic from WCH and Nunki-Micro boards
   * Microcontroller: CH32V003
 
+  - Linux serial console example
+```
+echo -n -e "1\r" > /dev/ttyACM0 # LED On
+echo -n -e "2\r" > /dev/ttyACM0 # LED Off
+echo -n -e "3\r" > /dev/ttyACM0 # LED Toggle
+```
+  - Connect to Serial console:
+```
+cu -l /dev/ttyACM0 -s 115200
+```
+  - GPIO mabnipulation example
 ```
 		/*
 		 * === Fast GPIO commands ===
