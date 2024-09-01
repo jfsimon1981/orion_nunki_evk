@@ -1,7 +1,7 @@
 # WCH CH32V003 and Nunki-Micro boards Software library
 
   * Orion (OL) library for easy GPIO manipulation
-  * Supports Nunki-Generic from WCH and Nunki-Micro boards
+  * Supports WCH CH32V003 EVK and Nunki-Micro boards
   * Microcontroller: CH32V003
 
   - Linux serial console example
@@ -14,7 +14,7 @@ echo -n -e "3\r" > /dev/ttyACM0 # LED Toggle
 ```
 cu -l /dev/ttyACM0 -s 115200
 ```
-  - GPIO mabnipulation example
+  - GPIO manipulation example
 ```
 		/*
 		 * === Fast GPIO commands ===
