@@ -10,6 +10,7 @@
 #ifndef USER_CE_LIB_C_
 #define USER_CE_LIB_C_
 
+#ifdef EVK_CH32V003_GENERIC
 GPIO_TypeDef * ol_port_map[] = {0, GPIOD, GPIOD, GPIOD, GPIOD, GPIOC, GPIOD, GPIOD, \
 		GPIOD, GPIOC, GPIOD, GPIOC, GPIOC, GPIOC, GPIOC, GPIOC, GPIOC};
 
@@ -17,6 +18,17 @@ uint16_t ol_pin_map[] = {0, GPIO_Pin_5, GPIO_Pin_4, GPIO_Pin_7, GPIO_Pin_6, \
 		GPIO_Pin_0, GPIO_Pin_0, GPIO_Pin_1, GPIO_Pin_3, GPIO_Pin_7, \
 		GPIO_Pin_2, GPIO_Pin_5, GPIO_Pin_6, GPIO_Pin_3, GPIO_Pin_4, \
 		GPIO_Pin_1, GPIO_Pin_2};
+#endif
+
+#ifdef CE_NUNKI_MICRO_CH32V003F
+GPIO_TypeDef * ol_port_map[] = {0, GPIOD, GPIOD, GPIOC, GPIOD, GPIOC, GPIOC, GPIOC, \
+		GPIOC, GPIOC, GPIOC, GPIOC, GPIOD, GPIOD, GPIOD, GPIOD, GPIOD};
+
+uint16_t ol_pin_map[] = {0, GPIO_Pin_5, GPIO_Pin_7, GPIO_Pin_0, GPIO_Pin_1, \
+		GPIO_Pin_7, GPIO_Pin_5, GPIO_Pin_3, GPIO_Pin_1, GPIO_Pin_2, \
+		GPIO_Pin_4, GPIO_Pin_6, GPIO_Pin_2, GPIO_Pin_3, GPIO_Pin_0, \
+		GPIO_Pin_6, GPIO_Pin_4};
+#endif
 
 void gpio_digital_write(unsigned int pin, unsigned int vin) {
 #ifdef OL_SAFE

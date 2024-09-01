@@ -26,10 +26,10 @@ void user_init() {
 		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 		// GPIO outputs
-		GPIO_InitStructure.GPIO_Pin = OL_GPIO_01_PIN;
-		GPIO_Init(OL_GPIO_01_PORT, &GPIO_InitStructure);
-		GPIO_InitStructure.GPIO_Pin = OL_GPIO_02_PIN;
-		GPIO_Init(OL_GPIO_02_PORT, &GPIO_InitStructure);
+		GPIO_InitStructure.GPIO_Pin = OL_GPIO_03_PIN;
+		GPIO_Init(OL_GPIO_03_PORT, &GPIO_InitStructure);
+		GPIO_InitStructure.GPIO_Pin = OL_GPIO_05_PIN;
+		GPIO_Init(OL_GPIO_05_PORT, &GPIO_InitStructure);
 	}
 
 }
